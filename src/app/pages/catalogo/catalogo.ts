@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // 👈 IMPORTANTE
 import { ProductosService } from '../../services/productos.service';
 import { Router } from '@angular/router';
-
+import { CarritoService} from '../../services/carrito.service';
 @Component({
   selector: 'app-catalogo',
-  standalone: true, // 👈 IMPORTANTE
-  imports: [CommonModule], // 👈 ESTO ARREGLA ngFor y currency
+  standalone: true, 
+  imports: [CommonModule], 
   templateUrl: './catalogo.html'
 })
 export class CatalogoComponent implements OnInit {
@@ -15,13 +15,30 @@ export class CatalogoComponent implements OnInit {
 
   constructor(
     private productosService: ProductosService,
-    private router: Router
+    private router: Router,
+    public carritoService: CarritoService
   ) {}
 
   ngOnInit() {
-    this.productosService.getProductos().subscribe((data: any) => {
-      this.productos = data;
-    });
+    //this.productosService.getProductos().subscribe((data: any) => {
+    //  this.productos = data;
+      this.productos = [
+    {
+      id: 1,
+      nombre: 'Control Xbox',
+      marca: 'Microsoft',
+      precio: 1200,
+      imagen: 'https://via.placeholder.com/150'
+    },
+    {
+      id: 2,
+      nombre: 'PlayStation 5',
+      marca: 'Sony',
+      precio: 12000,
+      imagen: 'https://via.placeholder.com/150'
+    }
+  ];
+    //});
   }
 
   verDetalle(id: number) {
@@ -29,6 +46,13 @@ export class CatalogoComponent implements OnInit {
   }
 
   agregarCarrito(producto: any) {
-    console.log('Producto agregado:', producto);
-  }
+  alert('CLICK FUNCIONA');
+  console.log('Agregado:', producto);
+  this.carritoService.agregar(producto);
+}
+  
+
+  prueba() {
+  console.log('SI FUNCIONA CLICK');
+}
 }

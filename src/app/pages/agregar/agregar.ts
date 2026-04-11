@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './agregar.html',
   styleUrl: './agregar.css',
 })
-export class Agregar {}
+export class AgregarComponent {}

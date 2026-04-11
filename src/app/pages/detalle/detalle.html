@@ -1,1 +1,11 @@
-<p>detalle works!</p>
+<div *ngIf="producto">
+
+  <h2>{{ producto.nombre }}</h2>
+
+  <img [src]="producto.imagen" width="200">
+
+  <p><strong>Marca:</strong> {{ producto.marca }}</p>
+  <p><strong>Precio:</strong> {{ producto.precio | currency }}</p>
+  <p>{{ producto.descripcion }}</p>
+
+</div>
