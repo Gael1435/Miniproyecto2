@@ -20,25 +20,9 @@ export class CatalogoComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    //this.productosService.getProductos().subscribe((data: any) => {
-    //  this.productos = data;
-      this.productos = [
-    {
-      id: 1,
-      nombre: 'Control Xbox',
-      marca: 'Microsoft',
-      precio: 1200,
-      imagen: 'https://via.placeholder.com/150'
-    },
-    {
-      id: 2,
-      nombre: 'PlayStation 5',
-      marca: 'Sony',
-      precio: 12000,
-      imagen: 'https://via.placeholder.com/150'
-    }
-  ];
-    //});
+    this.productosService.getProductos().subscribe((data: any) => {
+    this.productos = data;
+  });
   }
 
   verDetalle(id: number) {

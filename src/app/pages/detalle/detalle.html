@@ -1,11 +1,11 @@
-<div *ngIf="producto">
+<div *ngIf="producto as p">
 
-  <h2>{{ producto.nombre }}</h2>
+  <h2>{{ p.nombre }}</h2>
 
-  <img [src]="producto.imagen" width="200">
+  <img [src]="p.imagen" width="200">
 
-  <p><strong>Marca:</strong> {{ producto.marca }}</p>
-  <p><strong>Precio:</strong> {{ producto.precio | currency }}</p>
-  <p>{{ producto.descripcion }}</p>
+  <p><strong>Marca:</strong> {{ p.marca }}</p>
+  <p><strong>Precio:</strong> {{ p.precio | currency }}</p>
+  <p>{{ p.descripcion }}</p>
 
 </div>

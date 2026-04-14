@@ -2,36 +2,33 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductosService } from '../../services/productos.service';
-
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-detalle',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './detalle.html',
   styleUrl: './detalle.css',
-  standalone: true,
 })
+export class DetalleComponent implements OnInit {
 
-export class DetalleComponent {
-  producto: any;
+  producto: any = {};
 
   constructor(
     private route: ActivatedRoute,
-    private productosService: ProductosService
-  ){}
+    private productosService: ProductosService,
+    private cd: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(){
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+  ngOnInit() {
+  const id = Number(this.route.snapshot.paramMap.get('id'));
 
-    this.productosService.getProducto(id).subscribe((data: any) => {
-      this.producto = data;
-    });
-    this.producto = {
-    nombre: 'Control Xbox',
-    marca: 'Microsoft',
-    precio: 1200,
-    descripcion: 'Control inalámbrico',
-    imagen: 'https://via.placeholder.com/150'
-  };
-  }
+  this.productosService.getProducto(id).subscribe((data: any) => {
+    this.producto = data;
+
+    this.cd.detectChanges();
+  });
 }
+}
+
