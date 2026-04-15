@@ -5,28 +5,37 @@ import { Injectable, signal } from '@angular/core';
 })
 export class CarritoService {
 
-  carrito = signal<any[]>(this.cargarCarrito());
+  carrito = signal<any[]>([]);
 
   agregar(producto: any) {
-    const nuevo = [...this.carrito(), producto];
-    this.carrito.set(nuevo);
-    localStorage.setItem('carrito', JSON.stringify(nuevo));
+
+    const items = this.carrito();
+
+    const existe = items.find(p => p.id === producto.id);
+
+    if (existe) {
+      existe.cantidad++;
+      this.carrito.set([...items]);
+    } else {
+      this.carrito.set([
+        ...items,
+        { ...producto, cantidad: 1 }
+      ]);
+    }
+
+    console.log("carrito actual:", this.carrito());
   }
 
-  eliminar(index: number) {
-    const nuevo = this.carrito().filter((_, i) => i !== index);
-    this.carrito.set(nuevo);
-    localStorage.setItem('carrito', JSON.stringify(nuevo));
+  eliminar(id: number) {
+    this.carrito.set(
+      this.carrito().filter(p => p.id !== id)
+    );
   }
 
   total() {
-    return this.carrito().reduce((sum, p) => sum + p.precio, 0);
+    return this.carrito().reduce(
+      (sum, p) => sum + p.precio * p.cantidad,
+      0
+    );
   }
-
-  private cargarCarrito(): any[] {
-    const data = localStorage.getItem('carrito');
-    return data ? JSON.parse(data) : [];
-  }
-
-  
 }
