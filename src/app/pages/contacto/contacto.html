@@ -1,1 +1,51 @@
-<p>contacto works!</p>
+<div class="contacto-container">
+
+  <h1>Contáctanos</h1>
+
+  <form (ngSubmit)="enviar()">
+
+    <input
+      type="text"
+      placeholder="Nombre"
+      [(ngModel)]="form.nombre"
+      name="nombre"
+      required
+    >
+
+    <input
+      type="email"
+      placeholder="Correo"
+      [(ngModel)]="form.correo"
+      name="correo"
+      required
+    >
+
+    <input
+      type="text"
+      placeholder="Asunto"
+      [(ngModel)]="form.asunto"
+      name="asunto"
+      required
+    >
+
+    <textarea
+      placeholder="Mensaje"
+      [(ngModel)]="form.mensaje"
+      name="mensaje"
+      required
+    ></textarea>
+
+    <button type="submit">
+      Enviar mensaje
+    </button>
+
+  </form>
+
+  <p *ngIf="enviado" class="ok">
+    ✅ Mensaje enviado correctamente
+  </p>
+
+  <p *ngIf="error" class="error">
+  {{ error }}
+</p>
+</div>

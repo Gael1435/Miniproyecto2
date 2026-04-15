@@ -1,1 +1,58 @@
-<p>agregar works!</p>
+<div class="agregar-container">
+
+  <h1>Agregar Producto</h1>
+
+  <form
+    [formGroup]="formulario"
+    (ngSubmit)="guardar()"
+  >
+
+    <input type="text"
+      placeholder="Nombre"
+      formControlName="nombre">
+
+    <input type="text"
+      placeholder="Categoría"
+      formControlName="categoria">
+
+    <input type="text"
+      placeholder="Marca"
+      formControlName="marca">
+
+    <input type="number"
+      placeholder="Precio"
+      formControlName="precio">
+
+    <input type="number"
+      placeholder="Stock"
+      formControlName="stock">
+
+    <input type="text"
+      placeholder="URL Imagen"
+      formControlName="imagen">
+
+    <textarea
+      placeholder="Descripción"
+      formControlName="descripcion">
+    </textarea>
+
+    <label>
+      <input type="checkbox" formControlName="disponible">
+      Disponible
+    </label>
+
+    <button type="submit">
+      Guardar Producto
+    </button>
+
+  </form>
+
+  <p *ngIf="error" class="error">
+    {{ error }}
+  </p>
+
+    <p *ngIf="enviado" class="ok">
+   Producto agregado correctamente
+    </p>
+
+</div>

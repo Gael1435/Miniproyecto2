@@ -1,20 +1,30 @@
 <div class="container">
+
   <h2>Catálogo de Productos</h2>
 
-  <div *ngFor="let producto of productos" class="card">
-    <img [src]="producto.imagen" width="150">
+  <div
+    *ngFor="let producto of productos"
+    class="bloque-producto"
+  >
 
-    <h3>{{ producto.nombre }}</h3>
-    <p>{{ producto.marca }}</p>
+    <app-tarjeta-producto
+      [producto]="producto">
+    </app-tarjeta-producto>
 
-    <p><strong>{{ producto.precio | currency }}</strong></p>
+    <div class="acciones">
 
-    <button (click)="verDetalle(producto.id)">
-      Ver detalle
-    </button>
+      <button
+        (click)="verDetalle(producto.id)">
+        Ver detalle
+      </button>
 
-    <button (click)="agregarCarrito(producto)">
-      Agregar al carrito
-    </button>
+      <button
+        (click)="agregarCarrito(producto)">
+        Agregar carrito
+      </button>
+
+    </div>
+
   </div>
+
 </div>

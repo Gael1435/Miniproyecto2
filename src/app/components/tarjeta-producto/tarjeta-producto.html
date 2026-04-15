@@ -1,0 +1,21 @@
+<div class="card">
+
+  <img [src]="producto.imagen">
+
+  <h3>{{ producto.nombre }}</h3>
+
+  <p>{{ producto.marca }}</p>
+
+  <p>{{ producto.categoria }}</p>
+
+  <p>{{ producto.precio | currency:'MXN' }}</p>
+
+  <p>Stock: {{ producto.stock }}</p>
+
+  <p
+    [ngClass]="producto.disponible ? 'verde' : 'rojo'"
+  >
+    {{ producto.disponible ? 'Disponible' : 'Agotado' }}
+  </p>
+
+</div>

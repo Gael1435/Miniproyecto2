@@ -1,0 +1,46 @@
+.carrito-container{
+  padding:40px;
+  background:#0f172a;
+  min-height:100vh;
+  color:white;
+}
+
+.item{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  transition: 0.3s;
+}
+
+
+.item:hover{
+    transform: translateY();
+}
+
+.item img{
+  width:120px;
+  border-radius:10px;
+}
+
+.info{
+  flex:1;
+}
+
+button{
+  background:red;
+  color:white;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.total{
+  text-align:right;
+  margin-top:30px;
+  color:#22c55e;
+}
