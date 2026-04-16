@@ -6,9 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductosService {
 
-  private apiProductos = 'http://localhost:3000/productos';
-  private apiContacto = 'http://localhost:3000/contacto';
-  private apiComprar = 'http://localhost:3000/comprar'
+  private apiProductos = 'https://backend-tiendajuegos.onrender.com/productos';
+  private apiContacto = 'https://backend-tiendajuegos.onrender.com/contacto';
+  private apiComprar = 'https://backend-tiendajuegos.onrender.com/comprar'
   constructor(private http: HttpClient) {}
 
   getProductos() {
