@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  ReactiveFormsModule,
-  FormGroup,
-  FormControl,
-  Validators
-} from '@angular/forms';
+import {ReactiveFormsModule, FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { ProductosService } from '../../services/productos.service';
 

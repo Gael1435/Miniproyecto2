@@ -1,11 +1,28 @@
-<div *ngIf="producto as p">
+<div class="detalle-container" *ngIf="producto as p">
 
-  <h2>{{ p.nombre }}</h2>
+  <div class="detalle-card">
 
-  <img [src]="p.imagen" width="200">
+    <img
+      [src]="p.imagen"
+      class="detalle-img"
+    >
 
-  <p><strong>Marca:</strong> {{ p.marca }}</p>
-  <p><strong>Precio:</strong> {{ p.precio | currency }}</p>
-  <p>{{ p.descripcion }}</p>
+    <div class="detalle-info">
+
+      <h1>{{ p.nombre }}</h1>
+
+      <p><strong>Marca:</strong> {{ p.marca }}</p>
+
+      <p class="precio">
+        {{ p.precio | currency:'MXN' }}
+      </p>
+
+      <div class="descripcion">
+        {{ p.descripcion }}
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

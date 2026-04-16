@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+// aqui esta el @Input obligatorio del programa
 @Component({
   selector: 'app-tarjeta-producto',
   standalone: true,

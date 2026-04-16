@@ -1,3 +1,5 @@
+
+// verifica que esten los campos completos y que el precio sea mayor a 0
 function validarProducto(req, res, next) {
   const { nombre, precio } = req.body;
 
@@ -11,7 +13,7 @@ function validarProducto(req, res, next) {
 
   next();
 }
-
+// verifica que los campos esten completos
 function validarContacto(req, res, next) {
   const { nombre, correo, mensaje } = req.body;
 

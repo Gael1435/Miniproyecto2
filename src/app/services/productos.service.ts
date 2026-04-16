@@ -8,6 +8,7 @@ export class ProductosService {
 
   private apiProductos = 'http://localhost:3000/productos';
   private apiContacto = 'http://localhost:3000/contacto';
+  private apiComprar = 'http://localhost:3000/comprar'
   constructor(private http: HttpClient) {}
 
   getProductos() {
@@ -25,4 +26,8 @@ export class ProductosService {
   enviarMensaje(data: any) {
   return this.http.post(this.apiContacto, data);
   }
+
+  comprar(carrito:any){
+  return this.http.post(this.apiComprar, carrito);
+  } 
 }

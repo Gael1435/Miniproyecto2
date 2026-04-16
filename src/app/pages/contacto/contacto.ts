@@ -26,7 +26,7 @@ export class ContactoComponent {
     private productosService: ProductosService,
     private cd: ChangeDetectorRef
   ) {}
-
+  // enviar el formulario a la bd
   enviar() {
 
     this.enviado = false;

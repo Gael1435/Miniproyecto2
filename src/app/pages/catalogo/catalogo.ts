@@ -28,9 +28,7 @@ export class CatalogoComponent implements OnInit {
 
   ngOnInit() {
 
-  this.productosService
-    .getProductos()
-    .subscribe((data: any) => {
+  this.productosService.getProductos().subscribe((data: any) => {
 
       this.productos = data.map((p: any) => ({
 
@@ -62,16 +60,13 @@ export class CatalogoComponent implements OnInit {
 
 }
 
+// ver el detalle de un producto
   verDetalle(id: number) {
     this.router.navigate(['/productos', id]);
   }
-
+// agregar un producto al carrito
   agregarCarrito(producto: any) {
   this.carritoService.agregar(producto);
   }
   
-
-  prueba() {
-  console.log('SI FUNCIONA CLICK');
-}
 }

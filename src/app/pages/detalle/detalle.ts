@@ -9,7 +9,7 @@ import { ChangeDetectorRef } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './detalle.html',
-  styleUrl: './detalle.css',
+   styleUrls: ['./detalle.css']
 })
 export class DetalleComponent implements OnInit {
 

@@ -34,6 +34,9 @@
       Total: {{ carritoService.total() | currency:'MXN' }}
     </h2>
 
+    <button (click)="comprar()">
+     Comprar
+    </button>
   </div>
 
   <ng-template #vacio>
