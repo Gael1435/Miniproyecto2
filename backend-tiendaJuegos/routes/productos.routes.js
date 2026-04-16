@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-const { validarProducto } =
-require('../middlewares/validaciones');
+const { validarProducto } = require('../middlewares/validaciones');
 
 
 // GET TODOS LOS PRODUCTOS
@@ -14,8 +13,13 @@ router.get('/', (req, res) => {
     (err, result) => {
 
       if (err) {
-        return res.status(500).json(err);
-      }
+  console.log(err);
+  return res.status(500).json({
+    code: err.code,
+    message: err.sqlMessage,
+    full: err
+  });
+}
 
       res.json(result);
     }
